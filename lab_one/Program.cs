@@ -9,6 +9,7 @@ namespace lab_one
             Console.WriteLine("Hello World!");
             Console.WriteLine("Adding a line");
             Console.WriteLine("Adding another line");
+            Console.WriteLine("On a new branch now");
         }
     }
 }
