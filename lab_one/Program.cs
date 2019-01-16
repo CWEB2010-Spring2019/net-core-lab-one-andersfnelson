@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace lab_one
 {
@@ -6,10 +7,23 @@ namespace lab_one
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Adding a line");
-            Console.WriteLine("Adding another line");
-            Console.WriteLine("On a new branch now");
+            
+
+            string[] CorrectAnswers;
+            CorrectAnswers = new string[10] { "B", "B", "C", "A", "D", "A", "A", "C", "D", "A" };
+            
+
+            
+
+            Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
+            //Figure out
+            Console.WriteLine("To get started, please press the enter key.");
+            Console.Read();
+
+           
+
+        
+            
         }
     }
 }
