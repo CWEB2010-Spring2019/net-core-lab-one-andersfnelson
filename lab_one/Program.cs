@@ -11,13 +11,17 @@ namespace lab_one
             
 
             string[] CorrectAnswers;
-            CorrectAnswers = new string[10] { "B", "B", "C", "A", "D", "A", "A", "C", "D", "A" };
+            CorrectAnswers = new string[10] 
+            {
+                "B", "B", "C", "A", "D", "A", "A", "C", "D", "A"
+            };
 
             string[] UserSelection = new string[10];
            
 
             string[] QuizQuestions;
-            QuizQuestions = new string[10] {
+            QuizQuestions = new string[10]
+            {
                                                 "What is the current stable release of .NET Core?",
                                              "What year was .NET Core first released in?",
                                               "What is the name for API's that are common to all .NET implementations?",
@@ -28,10 +32,12 @@ namespace lab_one
                                                 ".NET Core supports UWP apps.  What does UWP stand for?",
                                                 "What is ASP.net?",
                                                 "What license does .NET Core use?"
-                                                };
+             };
 
             string[,] QuizQuestionOptions;
-            QuizQuestionOptions = new string[10, 4] {{"A) 3.0", "B) 2.2", "C) 1.8", "D) 6.0"},
+            QuizQuestionOptions = new string[10, 4] 
+            {
+                                                   {"A) 3.0", "B) 2.2", "C) 1.8", "D) 6.0"},
                                                    { "A) 2015", "B) 2016", "C) 2017", "D) 2018"},
                                                     { "A) .NET Cross-platform ", "B) .NET Runtime ","C) .NET Standard ", "D) .NET Common " },
                                                      { "A) Will support desktop technologies like WPF and WinForms ", "B) Support for C++ ","C) Support for Python ", "D) It will run on Linux." },
@@ -40,7 +46,8 @@ namespace lab_one
                                                        { "A) 2018", "B) 2017","C) 2019", "D) It hasn't been announced yet" },
                                                      { "A) University of Wisconsin-Parkside", "B) UnderWater Photography","C) Universal Windows Platform", "D) Under Windows Purgatory" },
                                                          { "A) A programming language ", "B) An IDE","C) An operating system", "D) A web framework" },
-                                                         { "A) MIT License", "B) Dunwoody License","C) Harvard License", "D) Cornell License" }};
+                                                         { "A) MIT License", "B) Dunwoody License","C) Harvard License", "D) Cornell License" }
+            };
 
             string selection;
             ConsoleKey start;
@@ -61,8 +68,6 @@ namespace lab_one
             start = Console.ReadKey().Key;
             Console.Clear();
             while(start != exit)
-
-           
             {
                 for (int x = 0; x < QuizQuestions.Length; x++)
                 {
@@ -70,7 +75,6 @@ namespace lab_one
                     for (int i = 0; i < QuizQuestionOptions.GetLength(1); i++)
                     {
                         Console.WriteLine(QuizQuestionOptions[x, i]);
-
                     }
 
                     Console.WriteLine("\nPlease enter an option");
@@ -85,20 +89,23 @@ namespace lab_one
 
                     else
                     {
-                        wrong.Add("Question" + (x + 1) + " You answered " + selection);
+                        wrong.Add("Question " + (x + 1) + " You answered " + selection);
                     }
                     Console.Clear();
                 }
                     
                      
                 
-                Console.WriteLine("You answered " + correct.Count + " out of " + QuizQuestions.Length);
+                Console.WriteLine("You answered " + correct.Count + " out of " + QuizQuestions.Length + " correct.");
 
-                var Results = (correct.Count >= 7) ? "You passed the assessment " : "You didn't pass ";
+                var Results = (correct.Count >= 7) ? "You passed the assessment! " : "You didn't pass the assessment. ";
                 Console.WriteLine(Results);
+
+               
 
                 if(wrong.Count > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Listed below are the questions you got wrong.");
                     wrong.ForEach(x => { Console.WriteLine(x); });
                     //Console.WriteLine(x => { "The correct answer was " + CorrectAnswers(x + 1)});
@@ -107,16 +114,13 @@ namespace lab_one
                 wrong.Clear();
                 correct.Clear();
 
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("To take the quiz again, press enter.  To exit press the spacebar.");
                 start = Console.ReadKey().Key;
 
+               //End of while loop
             
-
-           
-
-        
-            
-        }
+            }
 
       
         }
