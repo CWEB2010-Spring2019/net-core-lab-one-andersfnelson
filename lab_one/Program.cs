@@ -43,32 +43,37 @@ namespace lab_one
                                                          { "A) MIT License", "B) Dunwoody License","C) Harvard License", "D) Cornell License" }};
 
             string selection;
-            int start;
-            int exit = -1;
+            ConsoleKey start;
+            ConsoleKey exit;
+            exit = ConsoleKey.Spacebar;
 
             List<string> correct = new List<string>();
             List<string> wrong = new List<string>();
 
-           
-            
 
-            
+
+
+
 
             Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
-            //Figure out
-            Console.WriteLine("To get started, please press the enter key.");
-            //start = Convert.ToInt32.(Console.ReadLine());
 
-            //while(start != exit)
+            Console.WriteLine("To get started, please press the enter key.");
+            start = Console.ReadKey().Key;
+            Console.Clear();
+            while(start != exit)
+
+           
             {
-                for(int x = 0; x < QuizQuestions.Length; x++){
+                for (int x = 0; x < QuizQuestions.Length; x++)
+                {
                     Console.WriteLine(QuizQuestions[x]);
-                        for(int i = 0; i < QuizQuestionOptions.GetLength(1); i++){
+                    for (int i = 0; i < QuizQuestionOptions.GetLength(1); i++)
+                    {
                         Console.WriteLine(QuizQuestionOptions[x, i]);
+
                     }
 
-
-                    Console.WriteLine("Please enter an option");
+                    Console.WriteLine("\nPlease enter an option");
                     selection = Console.ReadLine();
                     UserSelection[x] = selection;
 
@@ -80,34 +85,41 @@ namespace lab_one
 
                     else
                     {
-                        wrong.Add("Question" + (x + 1) + selection);
+                        wrong.Add("Question" + (x + 1) + " You answered " + selection);
                     }
+                    Console.Clear();
+                }
                     
                      
-                }
+                
                 Console.WriteLine("You answered " + correct.Count + " out of " + QuizQuestions.Length);
 
-                var Results = (correct.Count >= 1) ? "You passed the assessment " : "You didn't pass ";
+                var Results = (correct.Count >= 7) ? "You passed the assessment " : "You didn't pass ";
                 Console.WriteLine(Results);
 
                 if(wrong.Count > 0)
                 {
                     Console.WriteLine("Listed below are the questions you got wrong.");
                     wrong.ForEach(x => { Console.WriteLine(x); });
+                    //Console.WriteLine(x => { "The correct answer was " + CorrectAnswers(x + 1)});
                 }
 
                 wrong.Clear();
                 correct.Clear();
 
-                Console.WriteLine("To take the quiz again, enter any value other than -1.  To exit enter -1.");
-                Console.Read();
+                Console.WriteLine("To take the quiz again, press enter.  To exit press the spacebar.");
+                start = Console.ReadKey().Key;
 
-            }
+            
 
            
 
         
             
         }
+
+      
+        }
     }
 }
+
