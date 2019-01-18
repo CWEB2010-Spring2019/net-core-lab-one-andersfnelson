@@ -68,7 +68,9 @@ namespace lab_one
             start = Console.ReadKey().Key;
             Console.Clear();
             while(start != exit)
+            
             {
+                Console.BackgroundColor = ConsoleColor.Black;
                 for (int x = 0; x < QuizQuestions.Length; x++)
                 {
                     Console.WriteLine(QuizQuestions[x]);
@@ -101,15 +103,27 @@ namespace lab_one
                 var Results = (correct.Count >= 7) ? "You passed the assessment! " : "You didn't pass the assessment. ";
                 Console.WriteLine(Results);
 
-               
-
-                if(wrong.Count > 0)
+                if (correct.Count <= 6)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.Red;
+                }
+
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                }
+
+
+
+                if (wrong.Count > 0)
+                {
+                    //Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Listed below are the questions you got wrong.");
                     wrong.ForEach(x => { Console.WriteLine(x); });
                     //Console.WriteLine(x => { "The correct answer was " + CorrectAnswers(x + 1)});
                 }
+
+               
 
                 wrong.Clear();
                 correct.Clear();
@@ -117,6 +131,8 @@ namespace lab_one
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("To take the quiz again, press enter.  To exit press the spacebar.");
                 start = Console.ReadKey().Key;
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Black;
 
                //End of while loop
             
