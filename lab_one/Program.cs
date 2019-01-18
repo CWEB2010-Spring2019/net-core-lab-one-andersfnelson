@@ -89,7 +89,7 @@ namespace lab_one
 
                     else
                     {
-                        wrong.Add("Question " + (x + 1) + " You answered " + selection);
+                        wrong.Add("Question " + (x + 1) + " You answered " + selection + ".            The correct answer was "+ CorrectAnswers[x]);
                     }
                     Console.Clear();
                 }
@@ -121,8 +121,6 @@ namespace lab_one
                //End of while loop
             
             }
-
-      
         }
     }
 }
